@@ -34,11 +34,12 @@ namespace bench {
  * corresponding to the kernel launch directly. */
 /* TODO: SD-404 Remove queue::wait_and_throw workaround when Eigen removed */
 inline void wait_for_event(cl::sycl::event& ev, cl::sycl::queue q) {
-  if (ev.is_host()) {
-    q.wait_and_throw();
-  } else {
-    ev.wait_and_throw();
-  }
+  // if (ev.is_host()) {
+  //   q.wait_and_throw();
+  // } else {
+  //   ev.wait_and_throw();
+  // }
+  ev.wait_and_throw();
 }
 
 /** Executor to perform the Conv2d benchmark using portDNN.  */

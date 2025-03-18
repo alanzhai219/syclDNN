@@ -37,7 +37,7 @@ int main() {
       try {
         std::rethrow_exception(e);
       } catch (sycl::exception& e) {
-        std::cout << e.what() << " " << e.get_cl_code() << "\n";
+        std::cout << e.what() << " " << e.code() << "\n";
       }
     }
   });
